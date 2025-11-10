@@ -1,10 +1,33 @@
 /**
- * @description: 用于测试 Solution8 的岛屿数量计算功能
+ * @description: 用于测试 Solution8 类中 “计算岛屿数量” 功能的测试程序。
+ * 通过两个示例网格验证 numIslands() 方法的正确性。
  */
 public class L2023130001_8_Test {
+
     public static void main(String[] args) {
+
+        // 创建 Solution8 类的实例，用于调用 numIslands() 方法
         Solution8 solution = new Solution8();
 
+        /*
+         * 测试用例 1：
+         * 网格 grid1 表示的地图如下（1 表示陆地，0 表示水域）：
+         * 
+         * 1 1 1 1 0
+         * 1 1 0 1 0
+         * 1 1 0 0 0
+         * 0 0 0 0 0
+         * 
+         * 图示：
+         *  ┌───────────────┐
+         *  │ 1 1 1 1 0     │
+         *  │ 1 1 0 1 0     │
+         *  │ 1 1 0 0 0     │
+         *  │ 0 0 0 0 0     │
+         *  └───────────────┘
+         *  
+         * 可以看出左上角整块“1”连在一起，只形成 **一个大岛屿**。
+         */
         char[][] grid1 = {
             {'1','1','1','1','0'},
             {'1','1','0','1','0'},
@@ -12,6 +35,25 @@ public class L2023130001_8_Test {
             {'0','0','0','0','0'}
         };
 
+        /*
+         * 测试用例 2：
+         * 网格 grid2 表示的地图如下：
+         *
+         * 1 1 0 0 0
+         * 1 1 0 0 0
+         * 0 0 1 0 0
+         * 0 0 0 1 1
+         *
+         * 图示：
+         *  ┌───────────────┐
+         *  │ 1 1 0 0 0     │  ← 岛屿 #1
+         *  │ 1 1 0 0 0     │
+         *  │ 0 0 1 0 0     │  ← 岛屿 #2（单独的中间“1”）
+         *  │ 0 0 0 1 1     │  ← 岛屿 #3（右下角两个相连的“1”）
+         *  └───────────────┘
+         *
+         * 所以总共有 **3 个岛屿**。
+         */
         char[][] grid2 = {
             {'1','1','0','0','0'},
             {'1','1','0','0','0'},
@@ -19,7 +61,11 @@ public class L2023130001_8_Test {
             {'0','0','0','1','1'}
         };
 
-        System.out.println("示例1岛屿数量：" + solution.numIslands(grid1));
-        System.out.println("示例2岛屿数量：" + solution.numIslands(grid2));
+        // 调用 numIslands() 方法计算 grid1 中的岛屿数量，并打印结果
+        System.out.println("示例1岛屿数量：" + solution.numIslands(grid1));  // 预期输出：1
+
+        // 调用 numIslands() 方法计算 grid2 中的岛屿数量，并打印结果
+        System.out.println("示例2岛屿数量：" + solution.numIslands(grid2));  // 预期输出：3
     }
 }
+
